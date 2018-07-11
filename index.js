@@ -8,13 +8,14 @@
 import englishToBrailleLiteralSet from './english-to-braille.js';
 
 const myMap = new Map(englishToBrailleLiteralSet);
-let out = '';
 
 function braille() {
   const str = document.getElementById('sourceLangText').value;
-  for (let i = 0; i < str.length; i += 1) {
-    out += myMap.get(str[i]);
-  }
+  let out = '';
+  // for (let i = 0; i < str.length; i += 1) {
+  //   out += myMap.get(str[i]);
+  // }
+  out += str.split('').map(x => myMap.get(x)).join('');
   document.getElementById('targetLangText').innerHTML = out;
 }
 
